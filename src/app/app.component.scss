@@ -1,0 +1,21 @@
+.home-usuario {
+    .p-card {
+        width: 100%;
+
+        .p-card-header {
+            padding: 1rem;
+            display: flex;
+
+            h3 {
+                margin-block-start: 0;
+                margin-block-end: 0;
+            }
+        }
+        .p-card-body {
+            padding: 0;
+            .p-card-content {
+                padding: 0;
+            }
+        }
+    }
+}

@@ -1,4 +1,55 @@
-<div class="home">
-  <h1>Olá</h1>
+<div class="home-usuario">
+  
+  <div class="block text-center p-4 mb-3">
+    <h1>Agência de banco de sangue</h1>
+  </div>
+  
+  <div class="flex">
+
+    <div class="flex-1 h-4rem p-4">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h3>Agrupados por Estado</h3>
+        </ng-template>
+        <p-table [value]="agrupadosPorEstados" [scrollable]="true" scrollHeight="350px">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Estado</th>
+              <th>Total</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-agrupado>
+            <tr>
+              <td>{{ agrupado.estado }}</td>
+              <td>{{ agrupado.total }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+
+    <div class="flex-1 h-4rem p-4">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h3>IMC por faixa etária de dez em dez anos</h3>
+        </ng-template>
+        <p-table [value]="imcPorFaixaEtarias" [scrollable]="true" scrollHeight="350px">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Período Idade</th>
+              <th>Imc Médio</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-imc>
+            <tr>
+              <td>{{ imc.menorIdade + " - " + imc.maiorIdade }}</td>
+              <td>{{ imc.mediaImc }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+  
 </div>
 
