@@ -6,10 +6,10 @@
   
   <div class="formgrid grid">
 
-    <div class="field col">
+    <div class="field col-12 md:col-6">
       <p-card>
         <ng-template pTemplate="header">
-          <h3>Agrupados por Estado</h3>
+          <h3>Candidatos agrupados por estado</h3>
         </ng-template>
         <p-table [value]="agrupadosPorEstados" [scrollable]="true" scrollHeight="350px">
           <ng-template pTemplate="header">
@@ -28,10 +28,10 @@
       </p-card>
     </div>
 
-    <div class="field col">
+    <div class="field col-12 md:col-6">
       <p-card>
         <ng-template pTemplate="header">
-          <h3>IMC por faixa etária de dez em dez anos</h3>
+          <h3>IMC médio por faixa etária de dez em dez anos</h3>
         </ng-template>
         <p-table [value]="imcPorFaixaEtarias" [scrollable]="true" scrollHeight="350px">
           <ng-template pTemplate="header">
@@ -51,25 +51,71 @@
     </div>
   </div>
 
-  <div class="block text-center p-4 mb-3">
-    <h2>Percentual de Obesos por Gênero</h2>
-  </div>
-
-  <div class="formgrid grid">
-    <div class="field col">
-      <div class="block bg-pink-100 font-bold border-round text-center p-4">
-        FEMININO - {{ percetualDeObesosPorGenero.Feminino + "%" }}
-      </div>
+  <p-card>
+    <div class="block text-center p-4">
+      <h3>Percentual de Obesos por Gênero</h3>
     </div>
-    <div class="field col">
-      <div class="block bg-blue-300 font-bold border-round text-center p-4">
-        MASCULINO - {{ percetualDeObesosPorGenero.Masculino + "%" }}
-      </div>
-    </div>
-  </div>
   
-</div>
+    <div class="formgrid grid">
+      <div class="field col">
+        <div class="block bg-pink-100 font-bold border-round text-center p-4">
+          FEMININO - {{ percetualDeObesosPorGenero.Feminino + "%" }}
+        </div>
+      </div>
+      <div class="field col">
+        <div class="block bg-blue-300 font-bold border-round text-center p-4">
+          MASCULINO - {{ percetualDeObesosPorGenero.Masculino + "%" }}
+        </div>
+      </div>
+    </div>
+  </p-card>
 
-<!-- <div class="block">
-</div> -->
+  
+  <div class="formgrid grid mt-3">
+
+    <div class="field col-12 md:col-6">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h3>Media de idade para cada grupo sanguíneo</h3>
+        </ng-template>
+        <p-table [value]="mediaIdadeParaCadaGrupoSanguineo" [scrollable]="true" scrollHeight="350px">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Grupo Sanguíneo</th>
+              <th>Media Idade</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-grupo>
+            <tr>
+              <td>{{ grupo.tipoSanguineo }}</td>
+              <td>{{ grupo.mediaIdade }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+
+    <div class="field col-12 md:col-6">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h3>Quantidade possiveis de doadores para cada grupo sanguíneo</h3>
+        </ng-template>
+        <p-table [value]="quantidadePossiveisDeDoadoresParaCadaGrupo" [scrollable]="true" scrollHeight="350px">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Grupo Sanguíneo</th>
+              <th>Quantidade</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-grupo>
+            <tr>
+              <td>{{ grupo.tipoSanguineo }}</td>
+              <td>{{ grupo.quantidade }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+</div>
 

@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   agrupadosPorEstados: Array<any> = [];
   imcPorFaixaEtarias: Array<any> = [];
   percetualDeObesosPorGenero: any = {};
+  mediaIdadeParaCadaGrupoSanguineo: Array<any> = [];
+  quantidadePossiveisDeDoadoresParaCadaGrupo: Array<any> = [];
 
   constructor(
     private usuarioService: UsuarioService
@@ -21,6 +23,8 @@ export class AppComponent implements OnInit {
     this.buscarAgrupadosPorEstado();
     this.buscarImcPorFaixaEtariaDeDezEmDezAnos();
     this.buscarPercetualDeObesosPorGenero();
+    this.buscarMediaIdadeParaCadaGrupoSanguineo();
+    this.buscarQuantidadePossiveisDeDoadoresParaCadaGrupo();
   }
 
   buscarAgrupadosPorEstado() {
@@ -55,6 +59,32 @@ export class AppComponent implements OnInit {
       },
       error: error => {
         this.percetualDeObesosPorGenero = {};
+      }
+    })
+  }
+
+  buscarMediaIdadeParaCadaGrupoSanguineo() {
+    this.usuarioService.buscarMediaIdadeParaCadaGrupoSanguineo()
+    .subscribe({
+      next: (dados: any) => {
+        console.log(dados);
+        this.mediaIdadeParaCadaGrupoSanguineo = dados;
+      },
+      error: error => {
+        this.mediaIdadeParaCadaGrupoSanguineo = [];
+      }
+    })
+  }
+
+  buscarQuantidadePossiveisDeDoadoresParaCadaGrupo() {
+    this.usuarioService.buscarQuantidadePossiveisDeDoadoresParaCadaGrupo()
+    .subscribe({
+      next: (dados: any) => {
+        console.log(dados);
+        this.quantidadePossiveisDeDoadoresParaCadaGrupo = dados;
+      },
+      error: error => {
+        this.quantidadePossiveisDeDoadoresParaCadaGrupo = [];
       }
     })
   }

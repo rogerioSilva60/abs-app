@@ -20,4 +20,11 @@ export class UsuarioService {
     return this,this.http.get("http://127.0.0.1:8080/v1/usuarios/percentual-obeso-por-genero");
   }
 
+  buscarMediaIdadeParaCadaGrupoSanguineo() {
+    return this.http.get("http://127.0.0.1:8080/v1/usuarios/media-idade-grupo-sanguineo");
+  }
+
+  buscarQuantidadePossiveisDeDoadoresParaCadaGrupo() {
+    return this.http.get("http://127.0.0.1:8080/v1/usuarios/possiveis-doadores-por-grupo-sanguineo");
+  }
 }
