@@ -67,7 +67,6 @@ export class AppComponent implements OnInit {
     this.usuarioService.buscarMediaIdadeParaCadaGrupoSanguineo()
     .subscribe({
       next: (dados: any) => {
-        console.log(dados);
         this.mediaIdadeParaCadaGrupoSanguineo = dados;
       },
       error: error => {
@@ -80,7 +79,6 @@ export class AppComponent implements OnInit {
     this.usuarioService.buscarQuantidadePossiveisDeDoadoresParaCadaGrupo()
     .subscribe({
       next: (dados: any) => {
-        console.log(dados);
         this.quantidadePossiveisDeDoadoresParaCadaGrupo = dados;
       },
       error: error => {
