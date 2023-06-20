@@ -59,12 +59,12 @@
     <div class="formgrid grid">
       <div class="field col">
         <div class="block bg-pink-100 font-bold border-round text-center p-4">
-          FEMININO - {{ percetualDeObesosPorGenero.Feminino + "%" }}
+          FEMININO - {{ percetualDeObesosPorGenero.Feminino ? percetualDeObesosPorGenero.Feminino : 0 + "%" }}
         </div>
       </div>
       <div class="field col">
         <div class="block bg-blue-300 font-bold border-round text-center p-4">
-          MASCULINO - {{ percetualDeObesosPorGenero.Masculino + "%" }}
+          MASCULINO - {{ percetualDeObesosPorGenero.Masculino ? percetualDeObesosPorGenero.Masculino : 0 + "%" }}
         </div>
       </div>
     </div>
