@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   
   agrupadosPorEstados: Array<any> = [];
   imcPorFaixaEtarias: Array<any> = [];
+  percetualDeObesosPorGenero: any = {};
 
   constructor(
     private usuarioService: UsuarioService
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.buscarAgrupadosPorEstado();
     this.buscarImcPorFaixaEtariaDeDezEmDezAnos();
+    this.buscarPercetualDeObesosPorGenero();
   }
 
   buscarAgrupadosPorEstado() {
@@ -41,6 +43,18 @@ export class AppComponent implements OnInit {
       },
       error: error => {
         this.imcPorFaixaEtarias = [];
+      }
+    })
+  }
+
+  buscarPercetualDeObesosPorGenero() {
+    this.usuarioService.buscarPercentualDeObesosPorGenero()
+    .subscribe({
+      next: (dados: any) => {
+        this.percetualDeObesosPorGenero = dados;
+      },
+      error: error => {
+        this.percetualDeObesosPorGenero = {};
       }
     })
   }
